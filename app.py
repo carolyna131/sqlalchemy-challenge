@@ -1,5 +1,9 @@
 import numpy as np
+
 import datetime as dt
+from datetime import timedelta
+import datetime as dt
+from datetime import datetime
 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
@@ -14,10 +18,10 @@ from flask import Flask, jsonify
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 # reflect an existing database into a new model
-Base = automap_base()
+base = automap_base()
 
 # reflect the tables
-Base.prepare(engine, reflect=True)
+base.prepare(engine, reflect=True)
 
 # Save reference to the table
 measurement = base.classes.measurement
